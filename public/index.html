@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FrostChat</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="auth-overlay" class="overlay">
+    <form id="auth-form" class="card auth-card">
+      <h1>FrostChat</h1>
+      <p>Elegant real-time chat with rooms, DMs, mentions & profiles.</p>
+      <input id="username" required minlength="3" maxlength="24" placeholder="Username" />
+      <textarea id="bio" maxlength="120" placeholder="A short bio..."></textarea>
+      <button type="submit">Enter Chat</button>
+    </form>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="panel left glass">
+      <section class="profile-card glass-heavy">
+        <div id="avatar" class="avatar"></div>
+        <div>
+          <h2 id="me-name">-</h2>
+          <p id="me-status">-</p>
+        </div>
+        <button id="edit-profile">Edit</button>
+      </section>
+
+      <section class="rooms">
+        <div class="section-header">
+          <h3>Rooms</h3>
+          <button id="new-room">＋</button>
+        </div>
+        <ul id="rooms-list"></ul>
+      </section>
+    </aside>
+
+    <main class="panel center glass">
+      <header class="chat-header">
+        <h2 id="chat-title">General</h2>
+        <div class="header-actions">
+          <button id="theme-toggle">Toggle Theme</button>
+        </div>
+      </header>
+
+      <section id="messages" class="messages"></section>
+      <div id="typing-indicator" class="typing"></div>
+
+      <form id="message-form" class="composer">
+        <input id="message-input" autocomplete="off" placeholder="Type message... Use @username to mention" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+
+    <aside class="panel right glass">
+      <section>
+        <h3>Online</h3>
+        <ul id="users-list"></ul>
+      </section>
+
+      <section>
+        <h3>Direct Messages</h3>
+        <ul id="dms-list"></ul>
+      </section>
+    </aside>
+  </div>
+
+  <dialog id="profile-dialog" class="glass-heavy">
+    <form id="profile-form" method="dialog" class="modal-form">
+      <h3>Edit profile</h3>
+      <input id="profile-status" maxlength="90" placeholder="Status" />
+      <textarea id="profile-bio" maxlength="120" placeholder="Bio"></textarea>
+      <label>Avatar hue <input id="profile-hue" type="range" min="0" max="359" /></label>
+      <menu>
+        <button value="cancel">Cancel</button>
+        <button value="save">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
