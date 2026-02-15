@@ -1,0 +1,15 @@
+{
+  "name": "frostchat",
+  "version": "1.0.0",
+  "description": "Glassmorphism WebSocket chat platform with rooms, DMs, mentions, follows, and profiles",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.17.0"
+  }
+}
